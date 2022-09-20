@@ -1,1 +1,13 @@
-{% extend 'blog/base.html' %}
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="anuncio">
+        {% if anuncio.data_publicacao %}
+            <div class="data">
+                {{ anuncio.data_publicacao }}
+            </div>
+        {% endif %}
+        <h2>{{ anuncio.tipoSv }}</h2>
+        <p>{{ anuncio.descSv|linebreaksbr }}</p>
+    </div>
+{% endblock %}

@@ -9,4 +9,4 @@ def post_list(request):
 
 def post_detail(request, pk):
     anuncio = get_object_or_404(Anuncio, pk=pk)
-    return render(request, 'blog/post_detail.html', {'Anuncio': anuncio})
+    return render(request, 'blog/post_detail.html', {'anuncio': anuncio})
