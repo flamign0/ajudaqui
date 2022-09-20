@@ -1,0 +1,20 @@
+
+<html>
+    <head>
+        <title>Ajudaqui</title>
+    </head>
+    <body>
+        <h1><a href="/">
+            Anúncios de Serviços
+        </a></h1>
+        <div>
+            {% for Anuncio in anuncios %}
+            <div>
+                <h2><a href="">{{ Anuncio.tipoSv }}</a></h2>
+                <p>{{ Anuncio.descSv }}</p>
+                <p>Telefone: {{ Anuncio.telefone }}</p>
+                <p>Email: {{ Anuncio.email }}</p>
+                <p>Publicado: {{ Anuncio.data_publicacao }}</p>
+            </div>
+            {% endfor %}
+        </div>

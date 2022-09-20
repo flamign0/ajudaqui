@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.utils import timezone
 
+
 class Anuncio(models.Model):
     autor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     tipoSv = models.CharField(max_length=200)
@@ -16,4 +17,4 @@ class Anuncio(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.tipoSv
