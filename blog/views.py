@@ -1,6 +1,9 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect
 from django.utils import timezone
 from .models import Anuncio
+from .forms import AnuncioForm
 
 
 def post_list(request):
@@ -10,3 +13,31 @@ def post_list(request):
 def post_detail(request, pk):
     anuncio = get_object_or_404(Anuncio, pk=pk)
     return render(request, 'blog/post_detail.html', {'anuncio': anuncio})
+
+@login_required
+def post_new(request):
+     if request.method == "ANUNCIO":
+         form = AnuncioForm(request.ANUNCIO)
+         if form.is_valid():
+             anuncio = form.save(commit=False)
+             anuncio.autor = request.user
+             anuncio.data_publicacao = timezone.now()
+             anuncio.save()
+             return redirect('post_detail', pk=anuncio.pk)
+     else:
+         form = AnuncioForm()
+     return render(request, 'blog/post_edit.html', {'form': form})
+
+def post_edit(request, pk):
+     anuncio = get_object_or_404(Anuncio, pk=pk)
+     if request.method == "ANUNCIO":
+         form = AnuncioForm(request.ANUNCIO, instance=anuncio)
+         if form.is_valid():
+             anuncio = form.save(commit=False)
+             anuncio.autor = request.user
+             anuncio.data_publicacao = timezone.now()
+             anuncio.save()
+             return redirect('post_detail', pk=anuncio.pk)
+     else:
+         form = AnuncioForm(instance=anuncio)
+     return render(request, 'blog/post_edit.html', {'form': form})
