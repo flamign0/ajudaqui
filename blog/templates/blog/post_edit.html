@@ -2,7 +2,7 @@
 
 {% block content %}
     <h2>Novo Anuncio</h2>
-    <form method="ANUNCIO" class="anuncio-form">{% csrf_token %}
+    <form method="POST" class="anuncio-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
