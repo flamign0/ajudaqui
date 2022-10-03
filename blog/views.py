@@ -16,8 +16,8 @@ def post_detail(request, pk):
 
 @login_required
 def post_new(request):
-     if request.method == "ANUNCIO":
-         form = AnuncioForm(request.ANUNCIO)
+     if request.method == "POST":
+         form = AnuncioForm(request.POST)
          if form.is_valid():
              anuncio = form.save(commit=False)
              anuncio.autor = request.user
@@ -30,8 +30,8 @@ def post_new(request):
 
 def post_edit(request, pk):
      anuncio = get_object_or_404(Anuncio, pk=pk)
-     if request.method == "ANUNCIO":
-         form = AnuncioForm(request.ANUNCIO, instance=anuncio)
+     if request.method == "POST":
+         form = AnuncioForm(request.POST, instance=anuncio)
          if form.is_valid():
              anuncio = form.save(commit=False)
              anuncio.autor = request.user
