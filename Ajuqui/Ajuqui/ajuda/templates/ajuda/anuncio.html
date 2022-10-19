@@ -1,0 +1,9 @@
+{% extends 'ajuda/base.html' %}
+
+{% block content %}
+<div class="offset-1 col-10 list-div">
+    <a href="{% url 'ajuda:editAnuncio' pk=anuncio.pk %}"><span><i class="fas fa-edit"></i></span></a>
+    <h1>{{ anuncio.tipoSv }}</h1>
+    <p>{{ anuncio.descSv|linebreaksbr }}</p>
+</div>
+{% endblock %}
