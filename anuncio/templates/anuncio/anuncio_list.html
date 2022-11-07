@@ -1,0 +1,27 @@
+{% extends 'anuncio/base.html' %}
+
+{% block title %}- Anúncios{% endblock %}
+
+{% block content %}
+    <div ckass="conteiner dashboard">
+        <div class="col-4 dashboard-box" id="dashboard-anunciosativos">
+            <h4>Anuncios Ativos</h4>
+            <span>0</span>
+        </div>
+    </div>
+    <div ckass="conteiner dashboard">
+        <div class="col-4 dashboard-box" id="dashboard-">
+            <h4>Anuncios Ativos</h4>
+            <span>0</span>
+        </div>
+    </div>
+    {% for Anuncio in object_list %}
+        <div class="anuncios">
+            <h2><a href="{% url 'anuncio:anuncioDetail' pk=Anuncio.pk %}">{{ Anuncio.tipoSv }}</a></h2>
+            <div class="data">
+                <p>Publicado por {{ Anuncio.autor }} em: {{ Anuncio.data_publicacao}}.</p>
+            </div>
+            <br>
+        </div>
+    {% endfor %}
+{% endblock %}

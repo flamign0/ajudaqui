@@ -1,0 +1,12 @@
+{% extends 'anuncio/base.html' %}
+
+{% block subtitle %}Apagar anúncio{% endblock %}
+
+{% block content %}
+    Tem certeza que deseja apagar o anúncio '{{ anuncio.tipoSv }}'?
+    <form action="." method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Sim">
+        <input type="reset" onclick="location.href= '{% url 'anuncio:anuncioList' %}'" value="Não">
+    </form>
+{% endblock %}
