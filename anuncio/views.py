@@ -1,9 +1,12 @@
 from msilib.schema import ListView
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from anuncio.models import Anuncio
+
+class HomeView(TemplateView):
+    template_name = 'anuncio/home.html'
 
 class AnuncioList(ListView):
     model = Anuncio
