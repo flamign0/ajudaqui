@@ -6,7 +6,7 @@
     <h2>
         <form method="POST" class="anuncio-form">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form|crispy }}
             <input type="submit" class="btn btn-success" value="Criar Anuncio">
             <input type="reset" clas="btn btn-cancel" onclick="location.href = '{% url 'anuncio:anuncioList' %}'", value="Cancelar" >
         </form>

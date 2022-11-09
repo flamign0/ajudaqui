@@ -24,4 +24,7 @@ class AnuncioEdit(UpdateView):
 class AnuncioDelete(DeleteView):
     queryset = Anuncio.objects.all()
     success_url = reverse_lazy('anuncio:anuncioList')
-    
+
+def anuncios_ativos(request):
+    anuncios = Anuncio.objects.all().count()
+    return render(request, 'anuncio_list.html', {'anuncios':anuncios})
