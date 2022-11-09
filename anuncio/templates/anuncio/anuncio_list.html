@@ -13,6 +13,16 @@
             <span>0</span>
         </div>
     </div>
+    <div class="botao" style="text-align: center;">
+        <p>
+            <a href="{% url 'anuncio:anuncioCreate' %}" class="btn btn-primary">Novo anúncio</a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     {% for Anuncio in object_list %}
         <div class="anuncios">
             <h2><a href="{% url 'anuncio:anuncioDetail' pk=Anuncio.pk %}">{{ Anuncio.tipoSv }}</a></h2>

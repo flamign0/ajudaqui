@@ -5,12 +5,18 @@
 {% block subtitle %}- Criar Anúncio{% endblock %}
 
 {% block content %}
-    <h2>
-        <form method="POST" class="anuncio-form">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <input type="submit" class="btn btn-success" value="Criar Anuncio">
-            <input type="reset" clas="btn btn-cancel" onclick="location.href = '{% url 'anuncio:anuncioList' %}'", value="Cancelar" >
-        </form>
-    </h2>
+     <div class="row">
+        <div class="col-md-5 mx-auto">
+            <form action="" method="POST" >
+
+                {% csrf_token %}
+
+                {{ form|crispy }}
+                 
+                <br>
+                <button type="submit" class="btn btn-outline-success">Criar anuncio</button>
+                <input type="reset" class="btn btn-danger" onclick="location.href = '{% url 'anuncio:anuncioList' %}'", value="Cancelar" >
+            </form>
+        </div> 
+    </div>    
 {% endblock %}
