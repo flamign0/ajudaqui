@@ -3,17 +3,28 @@
 {% block subtitle %}- {{ anuncio.tipoSv }}{% endblock %}
 
 {% block content %}
-    <div class="anuncioDetail">
-        {% if user.is_authenticated %}
-        <a class="btn btn-default" href="{% url 'anuncio:anuncioEdit' pk=anuncio.id %}">Editar</a>
-        <a class="btn btn-delete" href="{% url 'anuncio:anuncioDelete' pk=anuncio.id %}">Apagar</a>
-        {% endif %}
-        {% if anuncio.data_publicacao %}
-            <div class="data">
-                {{ anuncio.data_publicacao}}
-            </div>
-        {% endif %}
-        <h2>{{ anuncio.tipoSv }}</h2>
-        <p>{{ anuncio.descSv|linebreaksbr }}</p>
-    </div>
+<br>
+   {% if request.user.is_authenticated %}
+        <div class="col-md-5 mx-auto">
+            {% if anuncio.data_publicacao %}
+                <h2 style="text-align: center">{{ anuncio.tipoSv }}</h2>
+                <p style="text-align: center">{{ anuncio.descSv|linebreaksbr }}</p>
+                <div class="data" style="text-align: center">
+                    {{ anuncio.data_publicacao}}
+                </div>
+            {% endif %}
+            <br>
+            <div class="alhinhar" style="text-align: center">
+                <a class="btn btn-warning btn-sm" href="{% url 'anuncio:anuncioEdit' pk=anuncio.id %}">Editar</a>
+                <a class="btn btn-danger btn-sm" href="{% url 'anuncio:anuncioDelete' pk=anuncio.id %}">Apagar</a>
+             </div>
+        </div>
+    {% endif %}
+    <br>  
+    <br>  
+    <br>  
+    <br>  
+    <br>  
+    <br>  
+    <br>  
 {% endblock %}

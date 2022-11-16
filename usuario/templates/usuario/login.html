@@ -1,0 +1,54 @@
+{% extends 'anuncio/base.html' %}
+
+
+{% load crispy_forms_tags %}
+
+
+<br>
+{% block content %}
+<div class="row">
+    {% if request.user.is_authenticated %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="col-md-7 mx-center">
+        <br>
+        <br>
+        <br>
+        <h3>
+            <i class="fa fa-exclamation" aria-hidden="true" style="color: red;"></i>
+            <strong style="color: red;">Ação Não permitida</strong>
+            <i class="fa fa-exclamation" aria-hidden="true" style="color: red;"></i>
+        </h3>
+        <hr>
+        <p class="lead">
+            Houve algum erro para processar a ação desejada ou você não tem o acesso necessario.
+        </p>
+        {% else %}
+        <br>
+        <br>
+        <br>
+        <h3 class="lead" style="text-align: center;">
+            <br>
+            Faça login Para ter acesso ao sistema
+        </h3>
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <form action="" method="POST">
+
+                    {% csrf_token %}
+
+                    {{ form|crispy }}
+                    
+                    <br>
+                    <button type="submit" class="btn btn-primary md-3">Entrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+<br>
+{% endblock %}

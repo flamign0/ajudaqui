@@ -2,34 +2,20 @@
 
 {% block title %}- Anúncios{% endblock %}
 
-{% block content %}
-    <div class="container dashboard">
-        <div class="col-4 dashboard-box" id="dashboard-anunciosativos">
-            <h4>Anuncios Ativos</h4>
-            <span>{{ anuncios_ativos }}</span>
-        </div>
-        <div class="col-4 dashboard-box" id="dashboard-solicitacontato">
-            <h4>Solicitações de Contato</h4>
-            <span>0</span>
-        </div>
-    </div>
-    <div class="botao" style="text-align: center;">
-        <p>
-            <a href="{% url 'anuncio:anuncioCreate' %}" class="btn btn-primary">Novo anúncio</a>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    {% for Anuncio in object_list %}
-        <div class="anuncios">
-            <h2><a href="{% url 'anuncio:anuncioDetail' pk=Anuncio.pk %}">{{ Anuncio.tipoSv }}</a></h2>
-            <div class="data">
-                <p>Publicado por {{ Anuncio.autor }} em: {{ Anuncio.data_publicacao}}.</p>
+
+    {% block content %}
+        {% if request.user.is_authenticated %}
+            <div class="anuncio">
+                <br>
+                {% for Anuncio in object_list %}
+                    <div class="anuncios">
+                        <h2><a href="{% url 'anuncio:anuncioDetail' pk=Anuncio.pk %}">{{ Anuncio.tipoSv }}</a></h2>
+                        <div class="data">
+                            <p>Publicado por {{ Anuncio.autor }} em: {{ Anuncio.data_publicacao}}.</p>
+                        </div>
+                        <br>
+                    </div>
+                {% endfor %}
             </div>
-            <br>
-        </div>
-    {% endfor %}
-{% endblock %}
+        {% endif %}
+    {% endblock %}

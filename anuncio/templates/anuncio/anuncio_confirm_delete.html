@@ -3,10 +3,25 @@
 {% block subtitle %}Apagar anúncio{% endblock %}
 
 {% block content %}
-    Tem certeza que deseja apagar o anúncio '{{ anuncio.tipoSv }}'?
+   <br>
+   <br>
+   <br>
+    <h2 style="text-align: center">Tem certeza que deseja apagar o anúncio <strong style="color: red">{{ anuncio.tipoSv }}</strong> ?</h2>
     <form action="." method="POST">
         {% csrf_token %}
-        <input type="submit" value="Sim">
-        <input type="reset" onclick="location.href= '{% url 'anuncio:anuncioList' %}'" value="Não">
+        <div class="Alhinar" style="text-align: center">
+            <button class="btn btn-success  float-" type="submit" >Sim</button>
+            <input type="reset" class="btn btn-danger" onclick="location.href= '{% url 'anuncio:anuncioList' %}'" value="Não">
+        </div>
     </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 {% endblock %}

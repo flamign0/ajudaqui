@@ -1,0 +1,24 @@
+{% extends 'anuncio/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block subtitle %}- Criar Anúncio{% endblock %}
+
+{% block content %}
+      <br>
+     <div class="row" style="align-content: center;">
+        <div class="col-md-5 mx-auto">
+            <form action="" method="POST" >
+
+                {% csrf_token %}
+
+                {{ form|crispy }}
+                 
+                <br>
+                <button type="submit" class="btn btn-success">Atualizar</button>
+                <input type="reset" class="btn btn-danger" onclick="location.href = '{% url 'anuncio:anuncioList' %}'", value="Cancelar">
+            </form>
+        </div> 
+    </div> 
+    <br>   
+{% endblock %}

@@ -1,0 +1,73 @@
+<!--
+{% extends 'anuncio/base.html' %}
+
+{% block title %}- Anúncios{% endblock %}
+
+{% block content %}
+        <div class="anuncio">
+            <div class="container dashboard">
+                <div class="col-4 dashboard-box" id="dashboard-anunciosativos">
+                    <h4>Anuncios Ativos</h4>
+                    <span>{{ anuncios_ativos }}</span>
+                </div>
+                <div class="col-4 dashboard-box" id="dashboard-solicitacontato">
+                    <h4>Solicitações de Contato</h4>
+                    <span>0</span>
+                </div>
+            </div>
+            <div class="botao" style="text-align: center;">
+                <p>
+                    <a href="{% url 'anuncio:anuncioCreate' %}" class="btn btn-primary">Novo anúncio</a>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            {% for Anuncio in object_list %}
+                <div class="anuncios">
+                    <h2><a href="{% url 'anuncio:anuncioDetail' pk=Anuncio.pk %}">{{ Anuncio.tipoSv }}</a></h2>
+                    <div class="data">
+                        <p>Publicado por {{ Anuncio.autor }} em: {{ Anuncio.data_publicacao}}.</p>
+                    </div>
+                    <br>
+                </div>
+            {% endfor %}
+        </div>
+    {% endblock %}
+CCCCCCCCCCCSSSSSSSSSSSSSSSSS
+/* CONFIGURAÇÃO DA DASHBOARD */
+.dashboard {
+    padding: 0;
+    width: 100%;
+    display: block;
+}
+
+.dashboard h4 {
+    font-size: 20px;
+}
+
+.dashboard span {
+    font-size: 40px;
+    display: block;
+    width: 100%;
+}
+
+.container fluid {
+    padding: 0%;
+}
+
+.dashboard-box {
+    float: left;
+    background-color: #dfdfdf;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 130px;
+    width: 32%;
+    text-align: center;
+}
+
+
+-->

@@ -1,13 +1,21 @@
 {% extends 'anuncio/base.html' %}
 
-{% block content %}
-    <br>
-    <br>
-    <div class="offset-1 col-10 hora-div">
-        <br>
-        <h1>Bem vindo ao Ajudaqui</h1>
-        <p>Aqui você pode decidir entre fazer um trabalho ou pagar por ele</p>
-        <br>
-    </div>
-    <br>
-{% endblock %}
+    {% block content %}
+      {% if request.user.is_authenticated %}
+            {% block image %}
+            <div class="image" style="background-image: url(https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_960_720.jpg)">
+                <br>
+                <br>
+                <div class="offset-1 col-10 hora-div">
+                    <br>
+                    <div class="main">
+                        <h1><strong style="color:rgb(255, 255, 255)">Bem vindo ao Ajudaqui</strong></h1>
+                        <p><strong>Aqui você pode decidir entre fazer um trabalho ou pagar por ele</strong></p>
+                        <br>
+                </div>
+                </div>
+                <br>
+            </div>
+            {% endblock %}
+        {% endif %} 
+    {% endblock %}

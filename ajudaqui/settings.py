@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'anuncio.apps.AnuncioConfig',
+    'usuario.apps.UsuarioConfig',
     'crispy_forms',
+
 ]
 
 MIDDLEWARE = [
@@ -124,4 +126,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#Para formulário
 CRISPY_TEMPLATE_PACK = 'bootstrap'
+
+#Login
+
+LOGIN_REDIRECT_URL = 'anuncio:home'
+LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'
